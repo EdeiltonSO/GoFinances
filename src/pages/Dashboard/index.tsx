@@ -8,6 +8,8 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 
+import EmptySpace from '../../components/EmptySpace';
+
 import formatValue from '../../utils/formatValue';
 
 import { Container, CardContainer, Card, TableContainer } from './styles';
@@ -57,6 +59,7 @@ const Dashboard: React.FC = () => {
       } catch (error) {
         console.log(error);
       }
+      console.log(transactions[0]);
     }
 
     loadTransactions();
@@ -116,6 +119,7 @@ const Dashboard: React.FC = () => {
               ))}
             </tbody>
           </table>
+          {!transactions[0] && <EmptySpace />}
         </TableContainer>
       </Container>
     </>
